@@ -90,6 +90,14 @@ var Separators = Placeholder{
 	"   ",
 }
 
+var Dot = Placeholder{
+	"   ",
+	"   ",
+	"   ",
+	"   ",
+	" ░ ",
+}
+
 var Digits = [...]Placeholder{
 	zero, one, two, three, four, five, six, seven, eight, nine,
 }
@@ -150,7 +158,7 @@ var seventh = Placeholder{
 	" █ ",
 }
 
-var last = Placeholder{
+var eig = Placeholder{
 	"   ",
 	"   ",
 	"   ",
@@ -158,6 +166,22 @@ var last = Placeholder{
 	"   ",
 }
 
+var nin = Placeholder{
+	"██ ",
+	"█ █",
+	"█ █",
+	"█ █",
+	"██",
+}
+
+var tenth = Placeholder{
+	"██ ",
+	"█ █",
+	"█ █",
+	"█ █",
+	"██",
+}
+
 var Alarm = [...]Placeholder{
-	first, second, third, fourth, fifth, sixth, seventh, last,
+	first, second, third, fourth, fifth, sixth, seventh, eig, nin, tenth,
 }
