@@ -179,7 +179,7 @@ var tenth = Placeholder{
 	"█ █",
 	"█ █",
 	"█ █",
-	"██",
+	" ██",
 }
 
 var Alarm = [...]Placeholder{
