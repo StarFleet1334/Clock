@@ -32,7 +32,20 @@ func main() {
 			utils.Digits[sec/10], utils.Digits[sec%10],
 		}
 
+		alarm := [...]utils.Placeholder{
+			utils.Alarm[0], utils.Alarm[1],
+			utils.Alarm[2],
+			utils.Alarm[3], utils.Alarm[4],
+			utils.Alarm[5],
+			utils.Alarm[6], utils.Alarm[7],
+		}
+
 		for line := range clock[0] {
+
+			if sec%10 == 0 {
+				clock = alarm
+			}
+
 			for index, digit := range clock {
 				next := clock[index][line]
 				if digit == utils.Separators && sec%2 == 0 {
@@ -45,6 +58,7 @@ func main() {
 
 		// pause for 1 second
 		time.Sleep(time.Second)
+
 	}
 
 }
