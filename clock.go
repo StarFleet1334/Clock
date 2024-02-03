@@ -4,104 +4,11 @@ import (
 	"fmt"
 	"time"
 
+	"clock/utils"
 	"github.com/inancgumus/screen"
 )
 
 func main() {
-
-	type placeholder [5]string
-
-	zero := placeholder{
-		"███",
-		"█ █",
-		"█ █",
-		"█ █",
-		"███",
-	}
-
-	one := placeholder{
-		"██ ",
-		" █ ",
-		" █ ",
-		" █ ",
-		"███",
-	}
-
-	two := placeholder{
-		"███",
-		"  █",
-		"███",
-		"█  ",
-		"███",
-	}
-
-	three := placeholder{
-		"███",
-		"  █",
-		"███",
-		"  █",
-		"███",
-	}
-
-	four := placeholder{
-		"█ █",
-		"█ █",
-		"███",
-		"  █",
-		"  █",
-	}
-
-	five := placeholder{
-		"███",
-		"█  ",
-		"███",
-		"  █",
-		"███",
-	}
-
-	six := placeholder{
-		"███",
-		"█  ",
-		"███",
-		"█ █",
-		"███",
-	}
-
-	seven := placeholder{
-		"███",
-		"  █",
-		"  █",
-		"  █",
-		"  █",
-	}
-
-	eight := placeholder{
-		"███",
-		"█ █",
-		"███",
-		"█ █",
-		"███",
-	}
-
-	nine := placeholder{
-		"███",
-		"█ █",
-		"███",
-		"  █",
-		"███",
-	}
-
-	separators := placeholder{
-		"   ",
-		" ░ ",
-		"   ",
-		" ░ ",
-		"   ",
-	}
-
-	digits := [...]placeholder{
-		zero, one, two, three, four, five, six, seven, eight, nine,
-	}
 
 	// For Go Playground, do not use this.
 	screen.Clear()
@@ -117,18 +24,18 @@ func main() {
 		now := time.Now()
 		hour, min, sec := now.Hour(), now.Minute(), now.Second()
 
-		clock := [...]placeholder{
-			digits[hour/10], digits[hour%10],
-			separators,
-			digits[min/10], digits[min%10],
-			separators,
-			digits[sec/10], digits[sec%10],
+		clock := [...]utils.Placeholder{
+			utils.Digits[hour/10], utils.Digits[hour%10],
+			utils.Separators,
+			utils.Digits[min/10], utils.Digits[min%10],
+			utils.Separators,
+			utils.Digits[sec/10], utils.Digits[sec%10],
 		}
 
 		for line := range clock[0] {
 			for index, digit := range clock {
 				next := clock[index][line]
-				if digit == separators && sec%2 == 0 {
+				if digit == utils.Separators && sec%2 == 0 {
 					next = "   "
 				}
 				fmt.Print(next, "  ")
